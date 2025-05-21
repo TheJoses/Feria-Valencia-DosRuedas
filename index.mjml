@@ -55,25 +55,28 @@
         </mj-section>
 
         <mj-section background-color="grey">
-            <mj-column width="150px">
+            <mj-column width="550px">
                 <mj-text color="#000000" align="center" font-size="25px">
-                    Para participar pulse el boton inferior
+                    Participa en el Sorteo
                 </mj-text>
             </mj-column>
 
-            <mj-column width="150p">
+            <mj-column width="150px">
                 <mj-image
                 align="center"
-                src="https://www.agoitz.eus/wp-content/uploads/2024/03/FLECHA-HACIA-ABAJO.gif">
+                src="https://www.agoitz.eus/wp-content/uploads/2024/03/FLECHA-HACIA-ABAJO.gif">GIF flecha hacia abajo
                 </mj-image>
             </mj-column>
 
-            <mj-column>
+            <mj-column width="550px">
                 <mj-button background-color="red" font-size="18px"
                 align="center"
                 href="">
                 PARTICIPAR
                 </mj-button>
+                <mj-text align="center">
+                *Para participar unicamente debe de pulsar en el boton superior y cumplimentar el formulario*
+                </mj-text>
             </mj-column>
         </mj-section>
 
