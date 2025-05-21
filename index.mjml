@@ -1,0 +1,86 @@
+<mjml>
+    <mj-head>
+        <mj-preview>
+        Sorteo dos entradas
+        </mj-preview>
+    </mj-head>
+    <mj-body background-color="#d5d5d5">
+        <mj-section background-color="#bdbdbd">
+            <mj-column>
+                <mj-image width="150px" align="center"
+                href="https://www.feriavalencia.com/"
+                src="https://dosruedas.feriavalencia.com/wp-content/uploads/2025/04/FV_IDENTIDADlogo-768x425-1-300x166.png"></mj-image>
+            </mj-column>
+
+            <mj-column>
+                <mj-image width="150px" align="center"
+                href="https://www.circuitricardotormo.com/"
+                src="https://www.puntocomunica.com/wp-content/uploads/2024/01/Circuit_Logo_25aniversario.webp">
+                </mj-image>
+            </mj-column>
+
+            <mj-column>
+                <mj-image
+                href="https://dosruedas.feriavalencia.com/exponer/"
+                src="https://dosruedas.feriavalencia.com/wp-content/uploads/2022/03/cropped-Logo_2RUEDAS_2022_150ppp-1.png">
+                </mj-image>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="#a4a4a4">
+            <mj-column>
+                <mj-text align="center" font-size="30px">
+                Sorteo de 2 entradas para Moto GP 14, 15 y 16 de noviembre de 2025.
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section>
+            <mj-column>
+                <mj-image
+                src="https://comunica.gva.es/o/adaptive-media/image/378423886/m/240117_VICE_foto2_Circuit_Logo_25aniversario.png">
+                </mj-image>
+            </mj-column>
+
+            <mj-column>
+                <mj-text color="#000000" align="center" font-size="20px">
+                    <strong>
+                    El Gran Premio Motul de la Comunitat Valenciana volverá los días 14, 15 y 16 de noviembre de 2025 al Circuit Ricardo Tormo.
+                    Será como siempre el broche de oro a la temporada 2025 de MotoGP.
+                    El trazado de Cheste decidirá las clasificaciones finales de Moto3, Moto2 y de MotoGP en un año muy especial
+                    que supondrá el retorno del Mundial de Motociclismo a su casa en Valencia, al Circuit Ricardo Tormo.
+                    <strong>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="grey">
+            <mj-column width="150px">
+                <mj-text color="#000000" align="center" font-size="25px">
+                    Para participar pulse el boton inferior
+                </mj-text>
+            </mj-column>
+
+            <mj-column width="150p">
+                <mj-image
+                align="center"
+                src="https://www.agoitz.eus/wp-content/uploads/2024/03/FLECHA-HACIA-ABAJO.gif">
+                </mj-image>
+            </mj-column>
+
+            <mj-column>
+                <mj-button background-color="red" font-size="18px"
+                align="center"
+                href="">
+                PARTICIPAR
+                </mj-button>
+            </mj-column>
+        </mj-section>
+
+        <mj-section>
+            <mj-column>
+
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>
