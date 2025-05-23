@@ -1,0 +1,21 @@
+<mjml>
+    <mj-head>
+        <mj-preview>
+            Formulario de Participacion Sorteo
+        </mj-preview>
+    </mj-head>
+    <mj-body>
+        <mj-section>
+            <mj-column>
+                <mj-text>Nombre:</mj-text>
+                <mj-text><input type="text"></mj-text>
+
+                <mj-text>Primer Apellido:</mj-text>
+                <mj-text><input type="text"></mj-text>
+
+                <mj-text>Segundo Apellido:</mj-text>
+                <mj-text><input type="text"></mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>
