@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="estilos-participa.css">
+        <link rel="icon" type="image/jpg" href="logo-2ruedas.jpg" />
+        <title>Participación Sorteo Entrada</title>
+    </head>
+    <body>
+        <div class="overlay"></div>
+
+        <nav>
+            <ul>
+                <li><a href="https://dosruedas.feriavalencia.com/">Nuestra Web</a></li>
+                <li><a href="https://dosruedas.feriavalencia.com/contacto/">Contacto</a></li>
+                <li><a href="https://dosruedas.feriavalencia.com/visitar/">Comprar Entradas</a></li>
+            </ul>
+        </nav>
+
+        <main class="header">
+            <header>
+            <a href="https://dosruedas.feriavalencia.com/" target="_blank" rel="noopener">
+                <img class="zoom1" src="imagen-dosruedas.jpg" alt="Dos Ruedas" />
+            </a>
+            <a href="https://www.feriavalencia.com/" target="_blank" rel="noopener">
+                <img class="zoom2" src="feria-valencia.jpg" alt="Feria Valencia" />
+            </a>
+        </header>
+        </main>
+
+        <main>
+            <form id="raffleForm" novalidate>
+            <h1>Participa en el Sorteo</h1>
+            <div class="form-group">
+                <label for="nombre">Nombre *</label>
+                <input type="text" id="nombre" name="nombre" required minlength="2" placeholder="Tu nombre" />
+                <div class="error" id="nombreError"></div>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos *</label>
+                <input type="text" id="apellidos" name="apellidos" required minlength="2" placeholder="Tus apellidos" />
+                <div class="error" id="apellidosError"></div>
+            </div>
+            <div class="form-group">
+                <label for="edad">Edad *</label>
+                <input type="number" id="edad" name="edad" required min="18" max="120" placeholder="Tu edad" />
+                <div class="error" id="edadError"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico *</label>
+                <input type="email" id="email" name="email" required placeholder="tu@ejemplo.com" />
+                <div class="error" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Número de Teléfono *</label>
+                <input type="tel" id="telefono" name="telefono" required pattern="\\+?[0-9\\s-]{7,15}" placeholder="+34 600 000 000" />
+                <div class="error" id="telefonoError"></div>
+            </div>
+            <div class="form-group">
+                <label for="codigoPostal">Código Postal *</label>
+                <input type="text" id="codigoPostal" name="codigoPostal" required pattern="\\d{4,6}" placeholder="Código Postal" />
+                <div class="error" id="codigoPostalError"></div>
+            </div>
+
+            <button type="submit">Participar</button>
+            <div class="confirmation" id="confirmationMessage" aria-live="polite"></div>
+            </form>
+        </main>
+
+        <footer>
+            <a href="https://www.mapfre.es/particulares/">
+                <img src="mapfre-patrocinador.jpg" alt="Logo Mapfre" />
+            </a>
+
+            <a href="https://www.caixapopular.es/es">
+                <img src="caixa-colab.jpg" alt="Logo Caixa" />
+            </a>
+
+            <a href="https://www.gva.es/va/inicio/presentacion">
+                <img src="marca-generalitat-valenciana-2017.svg" alt="Logo Generalitat Valenciana" />
+            </a>
+
+            <a href="https://www.comunitatvalenciana.com/es/turismo-deportivo/btt-cicloturismo-y-ciclismo">
+                <img src="cv-colab.jpg" alt="Logo Comunitat Valenciana" />
+            </a>
+
+            <a href="https://www.escueladeconductores.es/">
+                <img src="escuela-colab.jpg" alt="Logo Escuela de Conductores" />
+            </a>
+
+            <a href="https://maximo-moto.com/">
+                <img src="bela-colab.jpg" alt="Logo Bela" />
+            </a>
+
+            <a href="https://arrozdacsa.com/">
+                <img src="dacsa-colab.jpg" alt="Logo Arroz Dacsa" />
+            </a>
+        </footer>
+
+        <script>
+            const form = document.getElementById('raffleForm');
+            const confirmationMessage = document.getElementById('confirmationMessage');
+
+            const errors = {
+            nombre: document.getElementById('nombreError'),
+            apellidos: document.getElementById('apellidosError'),
+            edad: document.getElementById('edadError'),
+            email: document.getElementById('emailError'),
+            telefono: document.getElementById('telefonoError'),
+            codigoPostal: document.getElementById('codigoPostalError')
+            };
+
+            function validateField(field) {
+            const value = field.value.trim();
+            let valid = true;
+            let errorMsg = '';
+
+            if (!value) {
+                valid = false;
+                errorMsg = 'Este campo es obligatorio';
+            } else {
+                switch (field.id) {
+                case 'nombre':
+                case 'apellidos':
+                    if (value.length < 2) {
+                    valid = false;
+                    errorMsg = 'Debe contener al menos 2 caracteres';
+                    }
+                    break;
+                case 'edad':
+                    const age = parseInt(value);
+                    if (isNaN(age) || age < 18) {
+                    valid = false;
+                    errorMsg = 'Debes ser mayor de edad (18+)';
+                    } else if(age > 120) {
+                    valid = false;
+                    errorMsg = 'Edad inválida';
+                    }
+                    break;
+                case 'email':
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(value)) {
+                    valid = false;
+                    errorMsg = 'Correo electrónico invalido';
+                    }
+                    break;
+                case 'telefono':
+                    const phonePattern = /^\+?[0-9\s-]{7,15}$/;
+                    if (!phonePattern.test(value)) {
+                    valid = false;
+                    errorMsg = 'Número de teléfono invalido';
+                    }
+                    break;
+                case 'codigoPostal':
+                    const postalPattern = /^\d{4,6}$/;
+                    if (!postalPattern.test(value)) {
+                    valid = false;
+                    errorMsg = 'Código postal invalido';
+                    }
+                    break;
+                }
+            }
+
+            errors[field.id].textContent = errorMsg;
+            return valid;
+            }
+
+            form.addEventListener('input', (e) => {
+            if (errors[e.target.id]) {
+                validateField(e.target);
+            }
+            });
+
+            form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            confirmationMessage.textContent = '';
+            
+            let allValid = true;
+            for (const field of form.elements) {
+                if (field.tagName.toLowerCase() === 'input' && field.type !== 'submit') {
+                if (!validateField(field)) {
+                    allValid = false;
+                }
+                }
+            }
+
+            if (allValid) {
+                confirmationMessage.textContent = '¡Participación enviada con éxito! Se ha enviado una copia a tu correo.';
+                confirmationMessage.style.color = '#4caf50';
+
+                //Simulacion de un email
+                const subject = encodeURIComponent('Copia de tu participación en el sorteo');
+                const body = encodeURIComponent(
+                'Hola ' + form.nombre.value + ',\n\n' +
+                'Gracias por participar en el sorteo.\n\n' +
+                'Detalles de tu participación:\n' +
+                'Nombre: ' + form.nombre.value + '\n' +
+                'Apellidos: ' + form.apellidos.value + '\n' +
+                'Edad: ' + form.edad.value + '\n' +
+                'Correo Electrónico: ' + form.email.value + '\n' +
+                'Número de Teléfono: ' + form.telefono.value + '\n' +
+                'Código Postal: ' + form.codigoPostal.value + '\n\n' +
+                '¡Mucha suerte!'
+                );
+
+                //Envio de copia de email
+                setTimeout(() => {
+                window.location.href = `mailto:${form.email.value}?subject=${subject}&body=${body}`;
+                }, 600);
+
+                form.reset();
+            } else {
+                confirmationMessage.style.color = '#ef5350';
+                confirmationMessage.textContent = 'Por favor corrige los errores antes de enviar.';
+            }
+            });
+        </script>
+    </body>
+</html>
+
