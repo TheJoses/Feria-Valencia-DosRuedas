@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="estilos-valoracion.css">
+        <link rel="icon" type="image/jpg" href="valoracion.jpg" />
+        <title>Valoracion</title>
+    </head>
+    <body>
+        <div class="overlay">
+            <nav>
+                <ul>
+                    <li><a href="https://dosruedas.feriavalencia.com/">Nuestra Web</a></li>
+                    <li><a href="https://dosruedas.feriavalencia.com/contacto/">Contacto</a></li>
+                    <li><a href="https://dosruedas.feriavalencia.com/visitar/">Comprar Entradas</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="container">
+            <h1>Formulario de Valoración</h1>
+            <form id="valoracionForm" novalidate>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required minlength="2"/>
+
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo" placeholder="tu@ejemplo.com" required/>
+
+                <label>Valoración del servicio:</label>
+                
+                <div class="stars" id="starsContainer" role="radiogroup" aria-label="Valoración del servicio">
+                    <svg class="star" data-value="1" tabindex="0" aria-checked="false" role="radio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.63-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg>
+                    <svg class="star" data-value="2" tabindex="-1" aria-checked="false" role="radio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.63-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg>
+                    <svg class="star" data-value="3" tabindex="-1" aria-checked="false" role="radio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.63-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg>
+                    <svg class="star" data-value="4" tabindex="-1" aria-checked="false" role="radio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.63-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg>
+                    <svg class="star" data-value="5" tabindex="-1" aria-checked="false" role="radio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.63-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg>
+                </div>
+
+                <label for="satisfaccion">¿Qué tan satisfecho estás con el servicio?</label>
+                <select id="satisfaccion" name="satisfaccion" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="muy_satisfecho">Muy satisfecho</option>
+                    <option value="satisfecho">Satisfecho</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="insatisfecho">Insatisfecho</option>
+                    <option value="muy_insatisfecho">Muy insatisfecho</option>
+                </select>
+
+                <label for="recomendacion">¿Recomendarías nuestro servicio?</label>
+                <div>
+                    <input type="radio" id="si" name="recomendacion" value="si" required />
+                    <label for="si">Sí</label>
+                    <input type="radio" id="no" name="recomendacion" value="no" />
+                    <label for="no">No</label>
+                </div>
+
+                <label for="comentarios">Comentarios adicionales:</label>
+                <textarea id="comentarios" name="comentarios" placeholder="Escribe aquí tus comentarios..."></textarea>
+
+                <button type="submit">Enviar valoración</button>
+            </form>
+            <p class="thank-you-message" id="thankYouMessage">¡Gracias por tu valoración!</p>
+        </div>
+
+
+
+        <script>
+            (function(){
+                const starsContainer = document.getElementById('starsContainer');
+                const stars = starsContainer.querySelectorAll('.star');
+                let selectedValue = 0;
+
+                function updateStars(value) {
+                    stars.forEach(star => {
+                        const starValue = parseInt(star.getAttribute('data-value'));
+                        if (starValue <= value) {
+                            star.classList.add('selected');
+                            star.setAttribute('aria-checked', 'true');
+                            star.tabIndex = 0;
+                        } else {
+                            star.classList.remove('selected');
+                            star.setAttribute('aria-checked', 'false');
+                            star.tabIndex = -1;
+                        }
+                    });
+                }
+                
+                stars.forEach(star => {
+                    star.addEventListener('click', () => {
+                        selectedValue = parseInt(star.getAttribute('data-value'));
+                        updateStars(selectedValue);
+                    });
+                    star.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            selectedValue = parseInt(star.getAttribute('data-value'));
+                            updateStars(selectedValue);
+                        }
+                        // Keyboard navigation with arrow keys
+                        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                            e.preventDefault();
+                            let nextIndex = Array.from(stars).indexOf(star) + 1;
+                            if(nextIndex >= stars.length) nextIndex = 0;
+                            stars[nextIndex].focus();
+                        }
+                        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                            e.preventDefault();
+                            let prevIndex = Array.from(stars).indexOf(star) - 1;
+                            if(prevIndex < 0) prevIndex = stars.length - 1;
+                            stars[prevIndex].focus();
+                        }
+                    });
+                });
+
+                // Handle form submission
+                const form = document.getElementById('valoracionForm');
+                const thankYouMessage = document.getElementById('thankYouMessage');
+
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    // Basic validation
+                    if (form.nombre.value.trim().length < 2) {
+                        alert("Por favor, ingresa un nombre válido.");
+                        form.nombre.focus();
+                        return;
+                    }
+                    if (!form.correo.validity.valid) {
+                        alert("Por favor, ingresa un correo electrónico válido.");
+                        form.correo.focus();
+                        return;
+                    }
+                    if (selectedValue === 0) {
+                        alert("Por favor, selecciona una valoración.");
+                        starsContainer.focus();
+                        return;
+                    }
+                    // Aquí se podría enviar el formulario con AJAX, pero por ahora solo mostramos mensaje.
+                    form.style.display = 'none';
+                    thankYouMessage.style.display = 'block';
+                });
+            })();
+        </script>
+    </body>
+</html>

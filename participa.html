@@ -8,25 +8,25 @@
         <title>Participación Sorteo Entrada</title>
     </head>
     <body>
-        <div class="overlay"></div>
-
-        <nav>
-            <ul>
-                <li><a href="https://dosruedas.feriavalencia.com/">Nuestra Web</a></li>
-                <li><a href="https://dosruedas.feriavalencia.com/contacto/">Contacto</a></li>
-                <li><a href="https://dosruedas.feriavalencia.com/visitar/">Comprar Entradas</a></li>
-            </ul>
-        </nav>
+        <div class="overlay">
+            <nav>
+                <ul>
+                    <li><a href="https://dosruedas.feriavalencia.com/">Nuestra Web</a></li>
+                    <li><a href="https://dosruedas.feriavalencia.com/contacto/">Contacto</a></li>
+                    <li><a href="https://dosruedas.feriavalencia.com/visitar/">Comprar Entradas</a></li>
+                </ul>
+            </nav>
+        <div>
 
         <main class="header">
             <header>
-            <a href="https://dosruedas.feriavalencia.com/" target="_blank" rel="noopener">
-                <img class="zoom1" src="imagen-dosruedas.jpg" alt="Dos Ruedas" />
-            </a>
-            <a href="https://www.feriavalencia.com/" target="_blank" rel="noopener">
-                <img class="zoom2" src="feria-valencia.jpg" alt="Feria Valencia" />
-            </a>
-        </header>
+                <a href="https://dosruedas.feriavalencia.com/" target="_blank" rel="noopener">
+                    <img class="zoom1" src="imagen-dosruedas.jpg" alt="Dos Ruedas" />
+                </a>
+                <a href="https://www.feriavalencia.com/" target="_blank" rel="noopener">
+                    <img class="zoom2" src="feria-valencia.jpg" alt="Feria Valencia" />
+                </a>
+            </header>
         </main>
 
         <main>
@@ -98,124 +98,49 @@
             </a>
         </footer>
 
+        <form id="raffleForm" novalidate>
+            <!-- Campos del formulario -->
+            <button type="submit">Participar</button>
+            <div class="confirmation" id="confirmationMessage" aria-live="polite"></div>
+        </form>
+
         <script>
             const form = document.getElementById('raffleForm');
             const confirmationMessage = document.getElementById('confirmationMessage');
 
-            const errors = {
-            nombre: document.getElementById('nombreError'),
-            apellidos: document.getElementById('apellidosError'),
-            edad: document.getElementById('edadError'),
-            email: document.getElementById('emailError'),
-            telefono: document.getElementById('telefonoError'),
-            codigoPostal: document.getElementById('codigoPostalError')
-            };
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                confirmationMessage.textContent = '';
 
-            function validateField(field) {
-            const value = field.value.trim();
-            let valid = true;
-            let errorMsg = '';
+                // Validar campos (puedes usar tu lógica de validación aquí)
 
-            if (!value) {
-                valid = false;
-                errorMsg = 'Este campo es obligatorio';
-            } else {
-                switch (field.id) {
-                case 'nombre':
-                case 'apellidos':
-                    if (value.length < 2) {
-                    valid = false;
-                    errorMsg = 'Debe contener al menos 2 caracteres';
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                try {
+                    const response = await fetch('http://localhost:3000/participar', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    if (response.ok) {
+                        confirmationMessage.textContent = '¡Participación enviada con éxito!';
+                        confirmationMessage.style.color = '#4caf50';
+                        form.reset();
+                    } else {
+                        confirmationMessage.textContent = 'Error al enviar la participación.';
+                        confirmationMessage.style.color = '#ef5350';
                     }
-                    break;
-                case 'edad':
-                    const age = parseInt(value);
-                    if (isNaN(age) || age < 18) {
-                    valid = false;
-                    errorMsg = 'Debes ser mayor de edad (18+)';
-                    } else if(age > 120) {
-                    valid = false;
-                    errorMsg = 'Edad inválida';
-                    }
-                    break;
-                case 'email':
-                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailPattern.test(value)) {
-                    valid = false;
-                    errorMsg = 'Correo electrónico invalido';
-                    }
-                    break;
-                case 'telefono':
-                    const phonePattern = /^\+?[0-9\s-]{7,15}$/;
-                    if (!phonePattern.test(value)) {
-                    valid = false;
-                    errorMsg = 'Número de teléfono invalido';
-                    }
-                    break;
-                case 'codigoPostal':
-                    const postalPattern = /^\d{4,6}$/;
-                    if (!postalPattern.test(value)) {
-                    valid = false;
-                    errorMsg = 'Código postal invalido';
-                    }
-                    break;
+                } catch (error) {
+                    confirmationMessage.textContent = 'Error de conexión.';
+                    confirmationMessage.style.color = '#ef5350';
                 }
-            }
-
-            errors[field.id].textContent = errorMsg;
-            return valid;
-            }
-
-            form.addEventListener('input', (e) => {
-            if (errors[e.target.id]) {
-                validateField(e.target);
-            }
-            });
-
-            form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            confirmationMessage.textContent = '';
-            
-            let allValid = true;
-            for (const field of form.elements) {
-                if (field.tagName.toLowerCase() === 'input' && field.type !== 'submit') {
-                if (!validateField(field)) {
-                    allValid = false;
-                }
-                }
-            }
-
-            if (allValid) {
-                confirmationMessage.textContent = '¡Participación enviada con éxito! Se ha enviado una copia a tu correo.';
-                confirmationMessage.style.color = '#4caf50';
-
-                //Simulacion de un email
-                const subject = encodeURIComponent('Copia de tu participación en el sorteo');
-                const body = encodeURIComponent(
-                'Hola ' + form.nombre.value + ',\n\n' +
-                'Gracias por participar en el sorteo.\n\n' +
-                'Detalles de tu participación:\n' +
-                'Nombre: ' + form.nombre.value + '\n' +
-                'Apellidos: ' + form.apellidos.value + '\n' +
-                'Edad: ' + form.edad.value + '\n' +
-                'Correo Electrónico: ' + form.email.value + '\n' +
-                'Número de Teléfono: ' + form.telefono.value + '\n' +
-                'Código Postal: ' + form.codigoPostal.value + '\n\n' +
-                '¡Mucha suerte!'
-                );
-
-                //Envio de copia de email
-                setTimeout(() => {
-                window.location.href = `mailto:${form.email.value}?subject=${subject}&body=${body}`;
-                }, 600);
-
-                form.reset();
-            } else {
-                confirmationMessage.style.color = '#ef5350';
-                confirmationMessage.textContent = 'Por favor corrige los errores antes de enviar.';
-            }
             });
         </script>
+
     </body>
 </html>
 

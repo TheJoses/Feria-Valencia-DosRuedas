@@ -209,17 +209,17 @@ button:hover, button:focus {
 
 footer {
     display: flex;
-    justify-content: space-around; /* Space images evenly */
+    justify-content: space-around;
     align-items: center;
     padding: 20px;
     background: #ec6c6c;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
 footer img {
-    width: 100px; /* Set a uniform width */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 10px; /* Add some spacing between images */
+    width: 100px;
+    height: auto;
+    margin: 0 10px;
 }
 
 .confirmation {

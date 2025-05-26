@@ -1,0 +1,269 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('img1_2ruedas1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 0px;
+    padding: 30px 40px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 8px 20px #ff0000;
+    position: relative;
+    z-index: 1;
+    margin-top: 100px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #BB0000;
+    color: rgb(255, 0, 0);
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 6px #b14c4c;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background: #6f0505;
+    border-radius: 4px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #bb0000;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+header a {
+    display: inline-block;
+}
+
+header img.zoom1 {
+    width: 680px;
+    max-width: 100%;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 0px;
+    padding-right: 250px;
+}
+
+header img.zoom2 {
+    width: 120px;
+    max-width: 100%;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 0px;
+}
+
+header img.zoom1:hover {
+    transform: scale(1.15);
+}
+
+header img.zoom2:hover {
+    transform: scale(1.15);
+}
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 0;
+}
+
+header, footer {
+    z-index: 2;
+    background: rgba(0,0,0,0.6);
+    padding: 15px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+header img, footer img {
+    object-fit: contain;
+}
+
+.header{
+    padding-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    text-align: center;
+    color: #9d0202;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+label {
+    font-weight: 600;
+    color: #aa0000;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid #ff0000;
+    border-radius: 0px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+    font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #980303;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+.stars {
+    display: flex;
+    gap: 8px;
+}
+
+.star {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    fill: #efacac;
+    transition: fill 0.3s ease;
+}
+
+.star.selected,
+.star:hover,
+.star:hover ~ .star {
+    fill: #7e0101;
+}
+
+button {
+    background: #bb0000;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(131, 0, 0, 0.6);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #950101;
+}
+
+.thank-you-message {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #4a4a4a;
+    margin-top: 20px;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    header img, footer img {
+    max-height: 40px;
+    max-width: 90px;
+    }
+    form {
+        padding: 20px 15px;
+    }
+    form h1 {
+        font-size: 1.5rem;
+    }
+    input {
+        font-size: 0.9rem;
+    }
+    button {
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    header img, footer img {
+        max-height: 50px;
+        max-width: 110px;
+    }
+    form {
+        max-width: 420px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    }
+    header a:first-child img.zoom,
+    header a:last-child img.zoom {
+    width: 90vw;
+    max-width: 400px;
+    }
+}

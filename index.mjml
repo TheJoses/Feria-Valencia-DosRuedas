@@ -207,6 +207,21 @@
                 </mj-column>
             </mj-section>
 
+            <mj-section background-color="rgba(0, 0, 0, 0.5)">
+                <mj-column>
+                    <mj-text color="white" align="center" font-size="18px">
+                        Valoranos para seguir mejorando:
+                    </mj-text>
+                    <mj-button font-size="18px" align="center" color="white"
+                    href="formularioValoracion.html"
+                    >
+                    <strong>
+                    VALORANOS
+                    </strong>
+                    </mj-button>
+                </mj-column>
+            </mj-section>
+
             Patrocinadores y Colaboradores
             <mj-section background-color="#BB0000">
                 <mj-column width="100%">
@@ -245,7 +260,7 @@
                     >
                     </mj-image>
                 </mj-column>
-                Comunitat Valenciana
+                Comunitat Valenciana background-color="rgba(0, 0, 0, 0.5)"
                 <mj-column width="30%" background-color="white" padding="10px" padding-left="10px" padding-top="10px" padding-bottom="10px" padding-right="10px">
                     <mj-image
                     width="90px" height="70px"
