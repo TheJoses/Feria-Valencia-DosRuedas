@@ -118,7 +118,7 @@
                 const data = Object.fromEntries(formData.entries());
 
                 try {
-                    const response = await fetch('http://localhost:3000/participar', {
+                    const response = await fetch('http://localhost:3000/mysql', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
