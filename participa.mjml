@@ -7,7 +7,7 @@
     <mj-body>
         <mj-section>
             <mj-column>
-                <mj-text>Nombre:</mj-text>
+                <mj-text >Nombre:</mj-text>
                 <mj-text><input type="text"></mj-text>
 
                 <mj-text>Primer Apellido:</mj-text>

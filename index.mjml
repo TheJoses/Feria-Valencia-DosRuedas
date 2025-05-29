@@ -3,6 +3,7 @@
         <mj-preview>
         Sorteo dos entradas
         </mj-preview>
+
         <mj-style>
             /* Media Query para Ordenadores */
             @media only screen and (min-width: 1025px) {
@@ -11,7 +12,7 @@
                 }
                 .responsive-button {
                 padding: 15px 30px !important;
-                }
+                }9UxQZwdhvO
             }
 
             /* Media Query para Tablets */
@@ -35,7 +36,16 @@
             }
         </mj-style>
     </mj-head>
+
     <mj-body background-color="#444444">
+        <mj-section>
+            <mj-column width="100%" background-color="rgba(0, 0, 0, 0.5)">
+                <mj-text font-size="22px" align="center" color="white" padding-top="30px" padding-bottom="30px">
+                    Hola buenas Sr./Sra., <strong>{{nombre}} {{apellido1}} {{apellido2}}</strong> tenemos un regalo para usted.
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
         <mj-section>
             <mj-column background-color="#FFFFFF">
                 <mj-image

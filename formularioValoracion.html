@@ -20,7 +20,7 @@
 
         <div class="container">
             <h1>Formulario de Valoración</h1>
-            <form id="valoracionForm" novalidate>
+            <form id="valoracionForm" method="POST" action="guardar_valoracion.php" novalidate>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required minlength="2"/>
 
@@ -84,6 +84,7 @@
                             star.tabIndex = -1;
                         }
                     });
+                    document.getElementById('valoracion').value = value; // Actualiza el campo oculto
                 }
                 
                 stars.forEach(star => {
