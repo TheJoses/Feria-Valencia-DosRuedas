@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletín Informativo - Salón del Cómic de València</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/jpg" href="logo-salon-del-comic.png" />
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="logo-salon-del-comic.png" alt="Logo Salón del Cómic" class="logo" />
+            Salón del Cómic de València
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="#noticias">Noticias</a></li>
+                <li><a href="#promociones">Promociones</a></li>
+                <li><a href="#suscripcion">Suscripción</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="noticias">
+            <h2>Últimas Noticias</h2>
+            <article>
+                <h3>¡El Salón del Cómic de València regresa!</h3>
+                <p>Estamos emocionados de anunciar que el Salón del Cómic de València volverá este año con más sorpresas y actividades para todos los amantes del cómic.</p>
+                <video width="100%" height="400" controls>
+                    <source src="video-salon-del-comic.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+            </article>
+            <article>
+                <h3>Nuevos invitados confirmados</h3>
+                <p>Contaremos con la presencia de reconocidos autores y artistas del mundo del cómic. ¡No te lo pierdas!</p>
+                <div class="invitados">
+                    <img src="lorenzo-caudevilla.webp" alt="Invitado 1">
+                    <img src="gol.jpg" alt="Invitado 2">
+                    <img src="ernesto-priego.jpg" alt="Invitado 3">
+                    <img src="moises-tolosa.jpg" alt="Invitado 4">
+                    <img src="alvaro-ortiz.jpg" alt="Invitado 5">
+                </div>
+            </article>
+        </section>
+
+        <section id="promociones" class="promociones">
+            <h2>Promociones Especiales</h2>
+            <p>¡Suscríbete a nuestro boletín y recibe un 10% de descuento en tu entrada!</p>
+        </section>
+
+        <section id="suscripcion">
+            <h2>Suscríbete a nuestro boletín</h2>
+            <form action="subscribe.php" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellido1">Apellido 1:</label>
+                <input type="text" id="apellido1" name="apellido1" required>
+
+                <label for="apellido2">Apellido 2:</label>
+                <input type="text" id="apellido2" name="apellido2" required>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <button type="submit">Suscribirse</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Salón del Cómic de València. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
