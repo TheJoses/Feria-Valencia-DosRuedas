@@ -1,0 +1,170 @@
+<mjml>
+    <mj-head>
+        <mj-preview>
+            Correo Salon del Comic
+        </mj-preview>
+
+        <mj-style>
+            /* Media Query para Ordenadores */
+            @media only screen and (min-width: 1025px) {
+                .responsive-text {
+                font-size: 24px !important;
+                }
+                .responsive-button {
+                padding: 15px 30px !important;
+                }
+            }
+
+            /* Media Query para Tablets */
+            @media only screen and (min-width: 601px) and (max-width: 1024px) {
+                .responsive-text {
+                font-size: 20px !important;
+                }
+                .responsive-button {
+                padding: 12px 25px !important;
+                }
+            }
+            
+            /* Media Query para Teléfonos */
+            @media only screen and (max-width: 600px) {
+                .responsive-text {
+                font-size: 16px !important;
+                }
+                .responsive-button {
+                padding: 10px 20px !important;
+                }
+            }
+        </mj-style>
+    </mj-head>
+
+    <mj-body
+    background-color="grey"
+    >
+        <mj-wrapper
+        background-size="cover"
+        background-url="https://img2.rtve.es/imagenes/arranca-edicion-numero-42-del-salon-del-comic-barcelona/01714765356627.jpg"
+        >
+            <mj-section background-color="rgba(0, 0, 0, 0.5)">
+                <mj-column background-color="rgba(0, 0, 0, 0.5)">
+                    <mj-text font-size="18px" align="center" color="white">
+                        Hola buenas Sr./Sra. <strong>{{nombre}} {{apellido1}} {{apellido2}}</strong> tenemos noticias para ti.
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+
+            <mj-section background-color="rgba(0, 0, 0, 0.5)">
+                <mj-column background-color="rgba(0, 0, 0, 0.5)">
+                    <mj-text align="center" font-size="25px" color="white">
+                        <strong>Salon Comic Valencia</strong>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+
+            <mj-section>
+                <mj-column>
+                    <mj-button
+                    href="https://www.saloncomicvalencia.com/contactar/"
+                    >
+                        CONTACTO
+                    </mj-button>
+                </mj-column>
+
+                <mj-column>
+                    <mj-button
+                    href="https://www.saloncomicvalencia.com/"
+                    >
+                        WEB
+                    </mj-button>
+                </mj-column>
+
+                <mj-column>
+                    <mj-button
+                    href="https://www.saloncomicvalencia.com/visitar/"
+                    >
+                        ENTRADAS
+                    </mj-button>
+                </mj-column>
+            </mj-section>
+
+            <mj-section padding-left="200px" padding-right="200px" background-color="rgba(0, 0, 0, 0.5)">
+                <mj-column background-color="rgba(0, 0, 0, 0.5)">
+                    <mj-text align="center" font-size="25px" color="white">
+                        <strong>Noticias</strong>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+
+            <mj-section padding-left="30px" padding-right="30px" background-color="rgba(0, 0, 0, 0.5)">
+                <mj-column width="25%" background-color="rgba(0, 0, 0, 0.5)">
+                    <mj-text align="center" font-size="16px" color="white">
+                        La cita cultural del año en Valencia ya tiene fechas, del 27F al
+                        1M de 2026 en Feria Valencia, vuelve el Salón del Cómic de València
+                    </mj-text>
+                </mj-column>
+
+                <mj-column width="25%" background-color="rgba(0, 0, 0, 0.5)">
+                    <mj-text align="center" font-size="16px" color="white">
+                        Y la partida continua, el Tour Joc&Rol vuelve este fin
+                        de semana a La Nau
+                    </mj-text>
+                </mj-column>
+
+                <mj-column width="25%" background-color="rgba(0, 0, 0, 0.5)">
+                    <mj-text align="center" font-size="16px" color="white">
+                        El ganador del Cosmasters 2025 del Salón del Cómic de València,
+                        Kujalice, competirá en la final internacional del
+                        Cosplay World Master de Lisboa
+                    </mj-text>
+                </mj-column>
+
+                <mj-column width="25%" background-color="rgba(0, 0, 0, 0.5)">
+                    <mj-text align="center" font-size="16px" color="white">
+                        La zona Joc&Rol del Salón del Cómic de València
+                        regresa a la Comar Con de Torrevieja
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+
+            <mj-section background-color="rgba(0, 0, 0, 0.5)">
+                <mj-column background-color="rgba(0, 0, 0, 0.5)">
+                    <mj-text align="center" font-size="25px" color="white">
+                        <strong>Promociones</strong>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+
+            <mj-section background-color="rgba(0, 0, 0, 0.5)">
+                <mj-column background-color="rgba(0, 0, 0, 0.7)">
+                    <mj-text color="white" font-size="18px" align="center">
+                        Si compras la entrada anticipada en nuestra pagina web recibiras
+                        un 15% de descuento en esta, visita nuestro apartado de "Entradas"
+                        ahi encontraras todas las opciones disponibles.
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+
+            <mj-section>
+                <mj-column background-color="white">
+                    <mj-text align="center" font-size="18px">
+                        <strong>Organiza:</strong>
+                    </mj-text>
+                    <mj-image
+                    href="https://www.feriavalencia.com/"
+                    src="https://www.saloncomicvalencia.com/wp-content/uploads/2022/12/LOGO-CENTENARIO_01-01.jpg"
+                    width="150px"
+                    >
+                    Feria Valencia
+                    </mj-image>
+
+                    <mj-image
+                    href="https://www.saloncomicvalencia.com/"
+                    src="https://www.saloncomicvalencia.com/wp-content/uploads/2024/09/cropped-Logosin-2048x844.jpg"
+                    width="150px"
+                    >
+                    Salon Comic
+                    </mj-image>
+                </mj-column>
+            </mj-section>
+        </mj-wrapper>
+    </mj-body>
+</mjml>
