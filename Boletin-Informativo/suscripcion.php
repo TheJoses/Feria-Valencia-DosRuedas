@@ -31,7 +31,7 @@ if ($stmt->execute()) {
 
     // Convertir MJML a HTML
     require 'vendor/autoload.php'; // Asegúrate de que la ruta sea correcta
-    $mjml = file_get_contents('correo.mjml');
+    $mjml = file_get_contents('index.mjml');
     $mjmlClient = new \Mailjet\Client('tu_api_key', 'tu_api_secret', true, ['version' => 'v3']);
     $response = $mjmlClient->post('mjml', ['body' => ['mjml' => $mjml]]);
 
@@ -43,7 +43,7 @@ if ($stmt->execute()) {
         $subject = "Confirmación de Suscripción";
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= "From: no-reply@comicvalencia.com" . "\r\n";
+        $headers .= "From: feriavalenciacorreos@gmail.com" . "\r\n";
 
         mail($to, $subject, $html, $headers);
     } else {
