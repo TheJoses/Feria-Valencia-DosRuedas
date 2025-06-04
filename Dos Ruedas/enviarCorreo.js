@@ -35,10 +35,10 @@ function personalizeHtml(html, recipient) {
 // Función para enviar correos electrónicos
 async function sendEmail(toAddress, subject, htmlBody) {
   const transporter = nodemailer.createTransport({
-    service: 'gmail', // Cambia esto si usas otro servicio
+    service: 'gmail', // Servicio a traves del cual se envia
     auth: {
-      user: 'feriavalenciacorreos@gmail.com', // Cambia por tu correo
-      pass: 'clflhypynxqdplse' // Cambia por tu contraseña
+      user: 'feriavalenciacorreos@gmail.com', // Correo electronico encargado de enviar
+      pass: 'clflhypynxqdplse' // Contraseña de Aplicación
     }
   });
 

@@ -30,7 +30,7 @@
         </main>
 
         <main>
-            <form id="raffleForm" novalidate>
+            <form id="raffleForm" action="procesar_formulario.php" method="POST" novalidate>
             <h1>Participa en el Sorteo</h1>
             <div class="form-group">
                 <label for="nombre">Nombre *</label>
@@ -59,7 +59,7 @@
             </div>
             <div class="form-group">
                 <label for="codigoPostal">Código Postal *</label>
-                <input type="text" id="codigoPostal" name="codigoPostal" required pattern="\\d{4,6}" placeholder="Código Postal" />
+                <input type="text" id="codigo_postal" name="codigo_postal" required pattern="\\d{4,6}" placeholder="Código Postal" />
                 <div class="error" id="codigoPostalError"></div>
             </div>
 
@@ -98,49 +98,7 @@
             </a>
         </footer>
 
-        <form id="raffleForm" novalidate>
-            <!-- Campos del formulario -->
-            <button type="submit">Participar</button>
-            <div class="confirmation" id="confirmationMessage" aria-live="polite"></div>
         </form>
-
-        <script>
-            const form = document.getElementById('raffleForm');
-            const confirmationMessage = document.getElementById('confirmationMessage');
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                confirmationMessage.textContent = '';
-
-                // Validar campos (puedes usar tu lógica de validación aquí)
-
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData.entries());
-
-                try {
-                    const response = await fetch('http://localhost:3000/mysql', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data),
-                    });
-
-                    if (response.ok) {
-                        confirmationMessage.textContent = '¡Participación enviada con éxito!';
-                        confirmationMessage.style.color = '#4caf50';
-                        form.reset();
-                    } else {
-                        confirmationMessage.textContent = 'Error al enviar la participación.';
-                        confirmationMessage.style.color = '#ef5350';
-                    }
-                } catch (error) {
-                    confirmationMessage.textContent = 'Error de conexión.';
-                    confirmationMessage.style.color = '#ef5350';
-                }
-            });
-        </script>
-
     </body>
 </html>
 

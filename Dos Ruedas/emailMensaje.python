@@ -1,0 +1,16 @@
+  import smtplib
+  from email.message import EmailMessage
+
+  # Crear el mensaje
+  msg = EmailMessage()
+  msg['Subject'] = 'Correo de Confiramción'
+  msg['From'] = 'feriavalenciacorreos@gmail.com'
+  msg['To'] = 'destinatario@gmail.com'
+  msg.set_content('Este es el contenido del correo.')
+
+  # Enviar el correo
+  with smtplib.SMTP('smtp.gmail.com', 587) as server:
+      server.starttls()  # Iniciar TLS
+      server.login('tu_email@gmail.com', 'tu_contraseña')  # Autenticación
+      server.send_message(msg)  # Enviar el mensaje
+  
