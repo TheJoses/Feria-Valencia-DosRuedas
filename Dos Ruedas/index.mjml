@@ -41,7 +41,7 @@
         <mj-section>
             <mj-column width="100%" background-color="rgba(0, 0, 0, 0.5)">
                 <mj-text font-size="22px" align="center" color="white" padding-top="30px" padding-bottom="30px">
-                    Hola buenas Sr./Sra., <strong>{{nombre}} {{apellido1}} {{apellido2}}</strong> tenemos un regalo para usted.
+                    {{saludo}} Sr./Sra., <strong>{{nombre}} {{apellido1}} {{apellido2}}</strong> tenemos un regalo para usted.{{despedida}}
                 </mj-text>
             </mj-column>
         </mj-section>
@@ -173,11 +173,11 @@
                 </mj-column>
             </mj-section>
 
-            Redes Sociales
+            /* Redes Sociales
             <mj-section background-color="rgba(0, 0, 0, 0.5)">
                 <mj-column width="40%">
                     <mj-text color="white" font-size="18px" align="center">
-                    Siguenos en Redes:
+                    
                     </mj-text>
                 </mj-column>
 
@@ -215,7 +215,7 @@
                     src="">
                     </mj-image>
                 </mj-column>
-            </mj-section>
+            </mj-section>*/
 
             <mj-section background-color="rgba(0, 0, 0, 0.5)">
                 <mj-column>
@@ -223,7 +223,7 @@
                         Valoranos para seguir mejorando:
                     </mj-text>
                     <mj-button font-size="18px" align="center" color="white"
-                    href="formularioValoracion.html"
+                    href="https://forms.gle/S1hjjWQc3mtGJegA6"
                     >
                     <strong>
                     VALORANOS
@@ -266,7 +266,7 @@
                     <mj-image
                     width="90px" height="70px"
                     href="https://www.gva.es/va/inicio/presentacion"
-                    src="https://dosruedas.feriavalencia.com/wp-content/uploads/2022/03/marca-generalitat-valenciana-2017.svg"
+                    src="https://www.fundacionadsis.org/sites/default/files/imagenes/colaboradores/GVA-Conselleria-Educaci%C3%B3-Universitats-Ocupaci%C3%B3.png"
                     >
                     </mj-image>
                 </mj-column>
@@ -357,7 +357,7 @@
                 <mj-column>
                     <mj-image
                     href=""
-                    src="https://www.feriavalencia.com/wp-content/uploads/2022/09/logo-iberia.svg">
+                    src="https://www.liderlogo.es/wp-content/uploads/2022/12/Iberia-Simbolo-1.png">
                     </mj-image>
                 </mj-column>
 

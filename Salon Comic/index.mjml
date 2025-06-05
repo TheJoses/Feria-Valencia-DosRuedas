@@ -136,10 +136,44 @@
             <mj-section background-color="rgba(0, 0, 0, 0.5)">
                 <mj-column background-color="rgba(0, 0, 0, 0.7)">
                     <mj-text color="white" font-size="18px" align="center">
-                        Si compras la entrada anticipada en nuestra pagina web recibiras
-                        un 15% de descuento en esta, visita nuestro apartado de "Entradas"
+                        Si compras la entrada anticipada en nuestra pagina web <strong>recibiras
+                        un 15% de descuento</strong> en esta, visita nuestro apartado de "Entradas"
                         ahi encontraras todas las opciones disponibles.
                     </mj-text>
+                    <mj-text color="white" font-size="18px" align="center" padding-top="40px">
+                        Compra 5 entradas para todos tus amigos al y llevate dos
+                        de estas totalmente gratuitas.
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+
+            <mj-section background-color="rgba(0, 0, 0, 0.5)">
+                <mj-column>
+                    <mj-text color="white" align="center" font-size="18px">
+                        Valoranos para seguir mejorando:
+                    </mj-text>
+                    <mj-button font-size="18px" align="center" color="white"
+                    href="https://forms.gle/S1hjjWQc3mtGJegA6"
+                    >
+                    <strong>
+                    VALORANOS
+                    </strong>
+                    </mj-button>
+                </mj-column>
+            </mj-section>
+
+            <mj-section background-color="rgba(0, 0, 0, 0.5)">
+                <mj-column>
+                    <mj-text color="white" align="center" font-size="18px">
+                        Visita nuestra WEB:
+                    </mj-text>
+                    <mj-button font-size="18px" align="center" color="white"
+                    href="http://54.166.249.217/"
+                    >
+                    <strong>
+                    NOSOTROS
+                    </strong>
+                    </mj-button>
                 </mj-column>
             </mj-section>
 
